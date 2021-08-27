@@ -22,8 +22,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction =
                         getSupportFragmentManager().beginTransaction();
+
+                // 使用该方法创建的 Fragment 没有传递数据
+                //FlutterFragment.createDefault()
+                // 打开默认界面
+                //fragmentTransaction.replace(R.id.frame, FlutterFragment.createDefault());
+
                 // 创建 FlutterFragment
-                fragmentTransaction.replace(R.id.frame, FlutterFragment.createDefault());
+                fragmentTransaction.replace(R.id.frame,
+                        FlutterFragment.withNewEngine().initialRoute("Android 中嵌入 FlutterFragment").build());
                 fragmentTransaction.commit();
             }
         });
@@ -33,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = FlutterActivity
                         .withNewEngine()
-                        .initialRoute("Android 启动 FlutterActivity")
+                        .initialRoute("Android 中启动 FlutterActivity")
                         .build(MainActivity.this);
-                //intent.putExtra("initParams", "Android 中 Activity 启动 Flutter");
+                intent.putExtra("initParams", "Android 中启动 FlutterActivity2");
                 startActivity(intent);
             }
         });
