@@ -9,8 +9,17 @@ import android.view.View;
 
 import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.embedding.android.FlutterFragment;
+import io.flutter.plugin.common.BasicMessageChannel;
+import io.flutter.plugin.common.EventChannel;
+import io.flutter.plugin.common.MethodChannel;
 
 public class MainActivity extends AppCompatActivity {
+
+    private BasicMessageChannel mBasicMessageChannel;
+
+    private MethodChannel mMethodChannel;
+
+    private EventChannel mEventChannel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
