@@ -10,7 +10,7 @@
         android:id="@+id/flutter1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="方式一"
+        android:text="嵌入 FlutterFragment (可传递消息)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintHorizontal_bias="0"
@@ -22,14 +22,69 @@
         android:id="@+id/flutter2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="方式二"
-        android:layout_marginLeft="10dp"
+        android:text="启动 FlutterActivity (无消息传递)"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/flutter1"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flutter1"
         app:layout_constraintVertical_bias="0"/>
+
+
+    <Button
+        android:id="@+id/channel1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通过 BasicMessageChannel 向 Dart 发送消息"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flutter2"
+        app:layout_constraintVertical_bias="0"/>
+
+    <Button
+        android:id="@+id/channel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通过 EventChannel 向 Dart 发送消息"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/channel1"
+        app:layout_constraintVertical_bias="0"/>
+
+    <Button
+        android:id="@+id/channel3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通过 MethodChannel 向 Dart 发送消息"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/channel2"
+        app:layout_constraintVertical_bias="0"/>
+
+    <TextView
+        android:id="@+id/show_message"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:text="接收到来自 Dart 的消息 : "
+        android:background="@color/black"
+        android:textColor="#00FF00"
+
+        app:layout_constraintBottom_toTopOf="@+id/frame"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/channel3"
+        app:layout_constraintVertical_bias="0"/>
+
 
     <FrameLayout
         android:id="@+id/frame"
